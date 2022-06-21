@@ -1,0 +1,62 @@
+@use '../app' as *;
+
+.body{
+    margin: 10vw 15vw;
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+    align-items: flex-start;
+
+    .body-title{
+        font-size: max(1.7rem, 5vmin);
+        font-family: 'Poppins', sans-serif;
+        color: $primary-color;
+    }
+
+    .body-subtitle{
+        font-size: max(0.7rem, 1.5vmin);
+    }
+
+    .body-email{
+        margin: 2rem 0;
+        position: relative;
+        width: auto;
+        overflow: hidden;
+        text-align: center;
+
+        .body-input{
+            padding: 1rem 7rem 1rem 1rem;
+            font-size: min(1.5rem, 3vmin);
+            outline: none;
+            border: 1px solid rgb(196, 231, 241);;
+            background-color: rgb(239, 249, 252);
+            border-radius: 0.5rem;
+            
+            &::-webkit-input-placeholder {
+                color: rgb(131, 131, 131);
+                font-size: min(1.1rem, 3vmin);
+            }
+        }
+
+        .body-button{
+            position: absolute;
+            padding: 0 min(1rem, 5vmin);
+            right: 0.2rem;
+            top: 0.2rem;
+            bottom: 0.2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            border: none;
+            color: $white-color;
+            background: linear-gradient(to right, $primary-color, $black-color);
+
+            &:hover{
+                background-color: $tertiary-color;
+            }
+    
+            &:active{
+                background-color: $black-color;
+            }
+        }
+    }
+}

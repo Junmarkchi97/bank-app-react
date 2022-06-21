@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 *,
 *::before,
 *::after {
@@ -9,6 +10,104 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+.header .header1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+.header .header1 .logo {
+  width: auto;
+  height: auto;
+  max-height: 6rem;
+  margin: 0 5rem;
+  display: block;
+  cursor: pointer;
+}
+.header .header1 .services,
+.header .header1 .about,
+.header .header1 .help {
+  padding: 1rem 1rem;
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: auto;
+  position: relative;
+}
+.header .header1 .services::after,
+.header .header1 .about::after,
+.header .header1 .help::after {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in-out;
+  background-color: rgb(50, 50, 50);
+}
+.header .header1 .services:hover::after,
+.header .header1 .about:hover::after,
+.header .header1 .help:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.header .login {
+  padding: 1rem 1rem;
+  color: rgb(50, 50, 50);
+  text-decoration: none;
+  font-weight: 1000;
+  font-size: 1.1rem;
+  position: relative;
+}
+.header .login::after {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in-out;
+  background-color: rgb(50, 50, 50);
+}
+.header .login:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.header .signup {
+  margin: 2rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, rgb(50, 50, 50), black);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 1000;
+}
+.header .signup:hover {
+  background-color: rgb(30, 30, 30);
+}
+.header .signup:active {
+  background-color: black;
 }
 
 /*# sourceMappingURL=header.css.map */

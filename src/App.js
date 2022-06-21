@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import Homepage from './components/homepage/homepage.jsx';
+import './styles/app.css';
 
 function App() {
-  // return (
-    
-  // );
+  return(
+    <Homepage />
+  )
 }
 
 export default App;
