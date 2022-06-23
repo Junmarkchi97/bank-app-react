@@ -97,17 +97,20 @@ body {
 .header .signup {
   margin: 2rem;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, rgb(50, 50, 50), black);
+  background: linear-gradient(to right, rgb(50, 50, 50), rgb(134, 134, 134), rgb(50, 50, 50));
+  background-size: 700%;
+  background-position: 0%;
   color: white;
   text-decoration: none;
   border-radius: 10px;
   font-weight: 1000;
+  transition: 0.4s;
 }
 .header .signup:hover {
-  background-color: rgb(30, 30, 30);
+  background-position: 100% 0;
 }
 .header .signup:active {
-  background-color: black;
+  background-position: 150% 0;
 }
 
 /*# sourceMappingURL=header.css.map */

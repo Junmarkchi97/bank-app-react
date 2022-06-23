@@ -59,13 +59,16 @@ body {
   cursor: pointer;
   border: none;
   color: white;
-  background: linear-gradient(to right, rgb(50, 50, 50), black);
+  background: linear-gradient(to right, rgb(50, 50, 50), rgb(134, 134, 134), rgb(50, 50, 50));
+  background-size: 700%;
+  transition: 0.4s;
+  background-position: 0%;
 }
 .body .body-email .body-button:hover {
-  background-color: rgb(30, 30, 30);
+  background-position: 100% 0;
 }
 .body .body-email .body-button:active {
-  background-color: black;
+  background-position: 150% 0;
 }
 
 /*# sourceMappingURL=body.css.map */

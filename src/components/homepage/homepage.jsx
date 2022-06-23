@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react'
+import { React, Fragment } from 'react'
 import Header from './header'
 import Body from './body'
 
-export default function homepage() {
+export default function Homepage() {
   return (
     <Fragment>
         <Header />

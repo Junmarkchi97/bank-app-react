@@ -86,18 +86,22 @@
     .signup{
         margin: 2rem;
         padding: 1rem 2rem;
-        background: linear-gradient(to right, $primary-color, $black-color);
+        background: linear-gradient(to right, $primary-color,rgb(134, 134, 134), $primary-color);
+        background-size: 700%;
+        background-position: 0%;
         color: $white-color;
         text-decoration: none;
         border-radius: 10px;
         font-weight: 1000;
+        transition: 0.4s;
 
         &:hover{
-            background-color: $tertiary-color;
+            background-position: 100% 0;
         }
 
         &:active{
-            background-color: $black-color;
+            background-position: 150% 0;
+
         }
     }
 }

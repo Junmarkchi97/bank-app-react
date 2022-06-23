@@ -31,7 +31,7 @@
             border: 1px solid rgb(196, 231, 241);;
             background-color: rgb(239, 249, 252);
             border-radius: 0.5rem;
-            
+
             &::-webkit-input-placeholder {
                 color: rgb(131, 131, 131);
                 font-size: min(1.1rem, 3vmin);
@@ -48,14 +48,17 @@
             cursor: pointer;
             border: none;
             color: $white-color;
-            background: linear-gradient(to right, $primary-color, $black-color);
+            background: linear-gradient(to right, $primary-color,rgb(134, 134, 134), $primary-color);
+            background-size: 700%;
+            transition: 0.4s;
+            background-position: 0%;
 
             &:hover{
-                background-color: $tertiary-color;
+                background-position: 100% 0;
             }
     
             &:active{
-                background-color: $black-color;
+                background-position: 150% 0;
             }
         }
     }
