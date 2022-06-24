@@ -1,30 +1,45 @@
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
+import logoWhite from "../../assets/logo-white.png";
 import { Link } from "react-router-dom";
+import "../../styles/dashboard/sidebar.css";
 
-export default function Sidebar(props, onLogOut ) {
-  const { name, email, balance } = props;
-  const [state, setState] = useState(false);
+export default function Sidebar(props) {
+  const { name, email, balance, onLogOut } = props;
 
   const LogOut = () => {
-    // setIsLoggedIn(false);
-
-    console.log('ok')
-    onLogOut(state)
+    onLogOut(false);
   };
 
   return (
     <div className="navigation">
-      <h1>
-        Hello,{name}, {email}, {balance}
-      </h1>
-      <img src={logo} alt="" />
-      <h5>MANAGE</h5>
-      <Link to="/dashboard">
-        <i className="fa-solid fa-table-columns"></i>
-        <h4>Dashboard</h4>
-      </Link>
-      <button onClick={LogOut}>Log Out</button>
+      <div className="nav">
+        <img className="sidebar-logo" src={logoWhite} alt="logo" />
+        <Link to="/overview" className="overview">
+          <i className="fa-solid fa-table-columns"></i>
+          <h4>Overview</h4>
+        </Link>
+        <Link to="/cards" className="cards">
+          <i className="fa-solid fa-credit-card"></i>
+          <h4>Cards</h4>
+        </Link>
+        <Link to="/deposit" className="deposit">
+          <i className="fa-solid fa-money-bill-transfer"></i>
+          <h4>Deposit</h4>
+        </Link>
+        <Link to="/withdraw" className="withdraw">
+          <i className="fa-solid fa-money-bill-transfer"></i>
+          <h4>Withdraw</h4>
+        </Link>
+      </div>
+      <div className="settings">
+        <div className="profile">
+          <img src="/"></img>
+          <p>{name}</p>
+        </div>
+        <Link to="/homepage" className="button">
+          <button className="logout"onClick={LogOut}>Log Out</button>
+        </Link>
+      </div>
     </div>
   );
 }

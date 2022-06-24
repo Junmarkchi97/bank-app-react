@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.png";
 import { select } from "../../../utils";
 import { Link } from "react-router-dom";
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, error }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const removeEmailLabel = useRef(null);
   const removePassLabel = useRef(null);
@@ -24,7 +24,7 @@ export default function Login({ onLogin }) {
       removeEmailLabel.current.style.display = "none";
     }
 
-    select(".error").style.opacity = "0";
+    error.current.style.opacity = "0";
   };
 
   const setPassword = (e) => {
@@ -36,7 +36,7 @@ export default function Login({ onLogin }) {
       removePassLabel.current.add();
     }
 
-    select(".error").style.opacity = "0";
+    error.current.style.opacity = "0";
   };
 
   // const element = <input className="submit" type="submit" value="Sign In" />;
@@ -87,7 +87,7 @@ export default function Login({ onLogin }) {
               value={details.password}
             />
           </div>
-          <div className="error">Account does not exist!</div>
+          <div className="error" ref={error}>Account does not exist!</div>
           {/* <ConditionalLink
             element={element}
             to="/dashboard"
