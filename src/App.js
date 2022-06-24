@@ -10,6 +10,7 @@ import { select } from "./utils";
 function App() {
   const [currentUser, setCurrentUser] = useState(); //Current User Logged In
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [index, setIndex] = useState(2);
 
   const registeredUsers = [
     {
@@ -31,7 +32,7 @@ function App() {
       email: "james@bond.com",
       password: "1234",
       balance: 99999999,
-      id: 1,
+      id: 2,
     },
   ];
 
@@ -49,14 +50,17 @@ function App() {
     });
   };
 
-  if (isLoggedIn) {
-    console.log(currentUser);
+  const onLogOut = (state) => {
+    setIsLoggedIn(state);
+  };
 
+  if (isLoggedIn) {
     return (
       <Dashboard
         name={currentUser.name}
         email={currentUser.email}
         balance={currentUser.balance}
+        onLogOut={onLogOut}
       />
       // <Routes>
       //   <Route exact path="/homepage" element={<Homepage />} />

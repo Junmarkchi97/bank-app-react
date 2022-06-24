@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
-export default function Navigation(props) {
-  const { name, email , balance } = props
+export default function Sidebar(props, onLogOut ) {
+  const { name, email, balance } = props;
+  const [state, setState] = useState(false);
 
+  const LogOut = () => {
+    // setIsLoggedIn(false);
+
+    console.log('ok')
+    onLogOut(state)
+  };
 
   return (
     <div className="navigation">
@@ -17,6 +24,7 @@ export default function Navigation(props) {
         <i className="fa-solid fa-table-columns"></i>
         <h4>Dashboard</h4>
       </Link>
+      <button onClick={LogOut}>Log Out</button>
     </div>
   );
 }
