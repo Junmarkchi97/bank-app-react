@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
 }
@@ -146,6 +146,15 @@ body {
 }
 .login-user .login-container .create:active {
   background-position: 100% 0;
+}
+.login-user .login-container .return {
+  margin-top: 3rem;
+  color: rgb(66, 101, 129);
+}
+.login-user .login-container .return::before {
+  content: "<";
+  position: absolute;
+  transform: translate(-1rem);
 }
 
 /*# sourceMappingURL=login.css.map */

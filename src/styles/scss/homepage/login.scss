@@ -149,5 +149,16 @@
                 background-position: 100% 0;
             }
         }
+
+        .return{
+            margin-top: 3rem;
+            color: rgb(66, 101, 129);
+
+            &::before{
+                content: '<';
+                position: absolute;
+                transform: translate(-1rem);
+            }
+        }
     }
 }

@@ -1,8 +1,12 @@
-import React from 'react'
-import '../../styles/dashboard/dashboard.css'
+import React from "react";
+import "../../styles/dashboard/dashboard.css";
+import Navigation from "./navigation";
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   return (
-    <div>dashboard</div>
+    <div className="dashboard">
+      <Navigation name={props.name} email={props.email}/>
+
+    </div>
   )
 }

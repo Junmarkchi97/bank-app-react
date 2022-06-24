@@ -1,2 +1,6 @@
 @use '../app.scss';
 
+.dashboard{
+    display: flex;
+    flex-direction: row;
+}

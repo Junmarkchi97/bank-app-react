@@ -10,9 +10,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
 }
 
 /*# sourceMappingURL=dashboard.css.map */
