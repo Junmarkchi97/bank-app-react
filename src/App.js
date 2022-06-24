@@ -8,42 +8,56 @@ import Dashboard from "./components/dashboard/dashboard.jsx";
 import { select } from "./utils";
 
 function App() {
-  const [user, setUser] = useState({ name: "", email: "" }); //Current User Logged In
+  const [currentUser, setCurrentUser] = useState(); //Current User Logged In
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const adminUser = {
-    name: "Junmark Chi",
-    email: "chi@admin.com",
-    password: "12345678",
-  };
-
-  localStorage.setItem("adminUser", JSON.stringify(adminUser));
+  const registeredUsers = [
+    {
+      name: "Junmark Chi",
+      email: "junmark@chi.com",
+      password: "1234",
+      balance: 0,
+      id: 0,
+    },
+    {
+      name: "Elon Musk",
+      email: "elon@musk.com",
+      password: "1234",
+      balance: 1000000,
+      id: 1,
+    },
+    {
+      name: "James Bond",
+      email: "james@bond.com",
+      password: "1234",
+      balance: 99999999,
+      id: 1,
+    },
+  ];
 
   const onLogin = (details) => {
-    if (
-      details.email === adminUser.email &&
-      details.password === adminUser.password
-    ) {
-      setUser({
-        name: adminUser.name,
-        email: details.email,
-      });
+    registeredUsers.forEach((user) => {
+      if (user.email === details.email && user.password === details.password) {
+        setCurrentUser(registeredUsers[user.id]);
 
-      setIsLoggedIn(true);
+        setIsLoggedIn(true);
 
-      select(".error").style.opacity = "0";
-    } else {
-      select(".error").style.opacity = "1";
-    }
+        select(".error").style.opacity = "0";
+      } else {
+        select(".error").style.opacity = "1";
+      }
+    });
   };
 
-  const localLogged = JSON.parse(localStorage.getItem("isLoggedIn"));
-
   if (isLoggedIn) {
-    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+    console.log(currentUser);
 
     return (
-      <Dashboard email={user.email} name={user.name} />
+      <Dashboard
+        name={currentUser.name}
+        email={currentUser.email}
+        balance={currentUser.balance}
+      />
       // <Routes>
       //   <Route exact path="/homepage" element={<Homepage />} />
       //   <Route exact path="/dashboard" element={<Dashboard />} />
@@ -53,11 +67,7 @@ function App() {
     return (
       <Routes>
         <Route exact path="/homepage" element={<Homepage />} />
-        <Route
-          exact
-          path="/login"
-          element={<Login onLogin={onLogin} isLoggedIn={isLoggedIn} />}
-        />
+        <Route exact path="/login" element={<Login onLogin={onLogin} />} />
       </Routes>
     );
   }

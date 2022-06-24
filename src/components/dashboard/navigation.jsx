@@ -3,9 +3,14 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 export default function Navigation(props) {
+  const { name, email , balance } = props
+
+
   return (
     <div className="navigation">
-      {/* <h1>Hello,{props.name}, {props.email}</h1> */}
+      <h1>
+        Hello,{name}, {email}, {balance}
+      </h1>
       <img src={logo} alt="" />
       <h5>MANAGE</h5>
       <Link to="/dashboard">

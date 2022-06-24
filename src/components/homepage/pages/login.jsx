@@ -4,7 +4,7 @@ import logo from "../../../assets/logo.png";
 import { select } from "../../../utils";
 import { Link } from "react-router-dom";
 
-export default function Login({ onLogin, isLoggedIn }) {
+export default function Login({ onLogin }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const removeEmailLabel = useRef(null);
   const removePassLabel = useRef(null);
@@ -39,11 +39,11 @@ export default function Login({ onLogin, isLoggedIn }) {
     select(".error").style.opacity = "0";
   };
 
-  const element = <input className="submit" type="submit" value="Sign In" />;
+  // const element = <input className="submit" type="submit" value="Sign In" />;
 
-  const ConditionalLink = ({ element, to, isLoggedIn }) => {
-    return isLoggedIn ? <Link to={to}>{element}</Link> : <>{ element }</>;
-  };
+  // const ConditionalLink = ({ element, to, isLoggedIn }) => {
+  //   return isLoggedIn ? <Link to={to}>{element}</Link> : <>{ element }</>;
+  // };
 
   return (
     <div className="login-user">
@@ -88,11 +88,12 @@ export default function Login({ onLogin, isLoggedIn }) {
             />
           </div>
           <div className="error">Account does not exist!</div>
-          <ConditionalLink
+          {/* <ConditionalLink
             element={element}
             to="/dashboard"
             condition={isLoggedIn}
-          ></ConditionalLink>
+          ></ConditionalLink> */}
+          <input className="submit" type="submit" value="Sign In" />
         </form>
         <a href="#">Forgot your password?</a>
         <span>Don't have a Banko account?</span>
