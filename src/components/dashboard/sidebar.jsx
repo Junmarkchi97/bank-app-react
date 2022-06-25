@@ -6,7 +6,7 @@ import "../../styles/dashboard/sidebar.css";
 export default function Sidebar(props) {
   const { name, email, balance, onLogOut } = props;
 
-  const LogOut = () => {
+  const handleLogOut = () => {
     onLogOut(false);
   };
 
@@ -14,19 +14,19 @@ export default function Sidebar(props) {
     <div className="navigation">
       <div className="nav">
         <img className="sidebar-logo" src={logoWhite} alt="logo" />
-        <Link to="/overview" className="overview">
+        <Link to="/dashboard/overview" className="overview">
           <i className="fa-solid fa-table-columns"></i>
           <h4>Overview</h4>
         </Link>
-        <Link to="/cards" className="cards">
+        <Link to="/dashboard/cards" className="cards">
           <i className="fa-solid fa-credit-card"></i>
           <h4>Cards</h4>
         </Link>
-        <Link to="/deposit" className="deposit">
+        <Link to="/dashboard/deposit" className="deposit">
           <i className="fa-solid fa-money-bill-transfer"></i>
           <h4>Deposit</h4>
         </Link>
-        <Link to="/withdraw" className="withdraw">
+        <Link to="/dashboard/withdraw" className="withdraw">
           <i className="fa-solid fa-money-bill-transfer"></i>
           <h4>Withdraw</h4>
         </Link>
@@ -37,7 +37,9 @@ export default function Sidebar(props) {
           <p>{name}</p>
         </div>
         <Link to="/homepage" className="button">
-          <button className="logout"onClick={LogOut}>Log Out</button>
+          <button className="logout" onClick={handleLogOut}>
+            Log Out
+          </button>
         </Link>
       </div>
     </div>

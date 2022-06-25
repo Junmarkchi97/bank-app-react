@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/homepage/body.css'
 
-export default function body() {
+export default function Body() {
   return (
     <div className='body'>
         <h1 className='body-title'>Powerfully Simple</h1>

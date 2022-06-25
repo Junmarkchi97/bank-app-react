@@ -1,7 +1,6 @@
 import { React, useState, useRef } from "react";
 import "../../../styles/homepage/login.css";
 import logo from "../../../assets/logo.png";
-import { select } from "../../../utils";
 import { Link } from "react-router-dom";
 
 export default function Login({ onLogin, error }) {
@@ -19,9 +18,9 @@ export default function Login({ onLogin, error }) {
     setDetails({ ...details, email: e.target.value });
 
     if (removeEmailLabel.current.value == "") {
-      removeEmailLabel.current.style.display = "flex";
+      removeEmailLabel.current.add();
     } else {
-      removeEmailLabel.current.style.display = "none";
+      removeEmailLabel.current.remove();
     }
 
     error.current.style.opacity = "0";
@@ -87,7 +86,9 @@ export default function Login({ onLogin, error }) {
               value={details.password}
             />
           </div>
-          <div className="error" ref={error}>Account does not exist!</div>
+          <div className="error" ref={error}>
+            Account does not exist!
+          </div>
           {/* <ConditionalLink
             element={element}
             to="/dashboard"
