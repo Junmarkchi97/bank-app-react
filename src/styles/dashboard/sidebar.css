@@ -32,7 +32,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 1rem;
+  gap: 2rem;
   overflow: hidden;
 }
 .navigation .nav .sidebar-logo {
@@ -99,7 +99,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 1rem;
+  gap: 3rem;
 }
 .navigation .settings .profile {
   display: flex;
