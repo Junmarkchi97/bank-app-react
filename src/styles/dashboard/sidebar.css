@@ -121,13 +121,13 @@ body {
   border-radius: 1rem;
   text-decoration: none;
   background: linear-gradient(to right, rgb(168, 100, 100), rgb(145, 72, 72), rgb(129, 63, 63));
-  background-size: 200%;
+  background-size: 900%;
   background-position: 0;
   color: white;
   transition: 0.4s;
 }
 .navigation .settings .logout:hover {
-  background-position: 100%;
+  background-position: 100% 0;
 }
 
 /*# sourceMappingURL=sidebar.css.map */
