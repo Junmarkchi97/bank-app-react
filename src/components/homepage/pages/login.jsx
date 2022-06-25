@@ -5,11 +5,21 @@ import { Link } from "react-router-dom";
 
 export default function Login({ onLogin, error }) {
   const [details, setDetails] = useState({ email: "", password: "" });
+  const [isError, setIsError] = useState();
   const removeEmailLabel = useRef(null);
   const removePassLabel = useRef(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (details.email === "" && details.password === "") {
+      setIsError("Enter your Email and Password.");
+    } else if (details.email === "") {
+      setIsError("Email Address cannot be blank.");
+    } else if (details.password === "") {
+      setIsError("Password cannot be blank.");
+    } else {
+      setIsError("Account does not exist!");
+    }
 
     onLogin(details);
   };
@@ -17,10 +27,10 @@ export default function Login({ onLogin, error }) {
   const setEmail = (e) => {
     setDetails({ ...details, email: e.target.value });
 
-    if (removeEmailLabel.current.value == "") {
-      removeEmailLabel.current.add();
+    if (e.target.value === "") {
+      removeEmailLabel.current.style.display = "flex";
     } else {
-      removeEmailLabel.current.remove();
+      removeEmailLabel.current.style.display = "none";
     }
 
     error.current.style.opacity = "0";
@@ -29,10 +39,10 @@ export default function Login({ onLogin, error }) {
   const setPassword = (e) => {
     setDetails({ ...details, password: e.target.value });
 
-    if (removePassLabel.current.value !== "") {
-      removePassLabel.current.remove();
+    if (e.target.value === "") {
+      removePassLabel.current.style.display = "flex";
     } else {
-      removePassLabel.current.add();
+      removePassLabel.current.style.display = "none";
     }
 
     error.current.style.opacity = "0";
@@ -87,7 +97,7 @@ export default function Login({ onLogin, error }) {
             />
           </div>
           <div className="error" ref={error}>
-            Account does not exist!
+            {isError}
           </div>
           {/* <ConditionalLink
             element={element}
