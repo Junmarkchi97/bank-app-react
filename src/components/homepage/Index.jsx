@@ -1,12 +1,12 @@
-import { React, Fragment } from 'react'
-import Header from './Header'
-import Body from './Body'
+import { React, Fragment } from "react";
+import Header from "./header";
+import Body from "./body";
 
 export default function Homepage() {
   return (
     <Fragment>
-        <Header />
-        <Body />
+      <Header />
+      <Body />
     </Fragment>
-  )
+  );
 }

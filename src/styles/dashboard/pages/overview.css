@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.overview-page {
+  padding: 2rem;
+  width: 100%;
+}
+.overview-page h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 1000;
+  font-family: "Poppins", sans-serif;
+  color: rgb(80, 80, 80);
+}
+.overview-page .welcome {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.overview-page .welcome .name {
+  font-weight: 1000;
+}
+.overview-page .balance-container {
+  display: flex;
+  flex-direction: rows;
+  gap: 2rem;
+  margin: 1rem;
+}
+.overview-page .balance-container .total-balance {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 10px;
+  font-weight: 1000;
+  width: auto;
+  min-width: 10rem;
+  background: rgb(50, 50, 50);
+  align-items: center;
+}
+.overview-page .balance-container .total-balance .fa-wallet {
+  color: rgb(255, 166, 0);
+  font-size: 1.5rem;
+  margin: auto;
+  padding: 0.7rem;
+  border-radius: 50%;
+  background: rgba(255, 166, 0, 0.1);
+}
+.overview-page .balance-container .total-balance .balace-label {
+  color: rgb(143, 143, 143);
+}
+.overview-page .balance-container .total-balance .balance {
+  color: white;
+}
+.overview-page .balance-container .total-transaction {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 10px;
+  font-weight: 1000;
+  background: rgb(50, 50, 50);
+  width: auto;
+  min-width: 10rem;
+  align-items: center;
+}
+.overview-page .balance-container .total-transaction .fa-right-left {
+  color: rgb(255, 166, 0);
+  font-size: 1.5rem;
+  margin: auto;
+  padding: 0.7rem;
+  border-radius: 50%;
+  background: rgba(255, 166, 0, 0.1);
+}
+.overview-page .balance-container .total-transaction .transaction-label {
+  color: rgb(143, 143, 143);
+}
+.overview-page .balance-container .total-transaction .transaction {
+  color: white;
+}
+.overview-page .chart {
+  position: relative;
+  width: 50vw;
+  height: 40vh;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 166, 0, 0.1);
+}
+
+/*# sourceMappingURL=overview.css.map */

@@ -1,11 +1,11 @@
 import React from "react";
-import { Route, Routes, Redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "../../styles/dashboard/dashboard.css";
-import Sidebar from "./Sidebar";
-import Overview from "./pages/Overview";
-import Cards from "./pages/Cards";
-import Deposit from "./pages/Deposit";
-import Withdraw from "./pages/Withdraw";
+import Sidebar from "./sidebar";
+import Overview from "./pages/overview";
+import Cards from "./pages/cards";
+import Deposit from "./pages/deposit";
+import Withdraw from "./pages/withdraw";
 
 export default function Dashboard(props) {
   return (
@@ -17,7 +17,11 @@ export default function Dashboard(props) {
         onLogOut={props.onLogOut}
       />
       <Routes>
-        <Route exact path="/dashboard/overview" element={<Overview />} />
+        <Route
+          exact
+          path="/dashboard/overview"
+          element={<Overview name={props.name} balance={props.balance} />}
+        />
         <Route exact path="/dashboard/cards" element={<Cards />} />
         <Route exact path="/dashboard/deposit" element={<Deposit />} />
         <Route exact path="/dashboard/withdraw" element={<Withdraw />} />

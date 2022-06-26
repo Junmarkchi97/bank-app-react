@@ -1,10 +1,10 @@
-import Homepage from "./components/homepage/Index";
-import Login from "./components/homepage/pages/Login";
+import Homepage from "./components/homepage/index";
+import Login from "./components/homepage/pages/login";
 // import Signup from './components/homepage/pages/signup'
 import "./styles/app.css";
 import { React, useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./components/dashboard/Index";
+import Dashboard from "./components/dashboard/index";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(); //Current User Logged In
