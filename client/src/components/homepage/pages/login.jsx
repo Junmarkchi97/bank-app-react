@@ -3,7 +3,7 @@ import "../../../styles/homepage/login.css";
 import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
 
-export default function Login({ onLogin, error }) {
+export default function Login({ onLogin, error, isValid }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
   const removeEmailLabel = useRef(null);
@@ -22,6 +22,7 @@ export default function Login({ onLogin, error }) {
     }
 
     onLogin(details);
+    console.log(details);
   };
 
   const setEmail = (e) => {
@@ -99,19 +100,19 @@ export default function Login({ onLogin, error }) {
           <div className="error" ref={error}>
             {isError}
           </div>
-          {/* <ConditionalLink
-            element={element}
-            to="/dashboard"
-            condition={isLoggedIn}
-          ></ConditionalLink> */}
-          <input className="submit" type="submit" value="Sign In" />
+          {isValid ? (
+            <Link to="/dashboard">
+              <input className="submit" type="submit" value="Sign In" />
+            </Link>
+          ) : (
+            <input className="submit" type="submit" value="Sign In" />
+          )}
         </form>
         <a href="#">Forgot your password?</a>
         <span>Don't have a Banko account?</span>
         <a href="#">
           <button className="create">Create new account</button>
         </a>
-
         <Link to="/homepage" className="return">
           Return to Homepage
         </Link>

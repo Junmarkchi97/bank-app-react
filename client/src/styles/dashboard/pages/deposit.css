@@ -1,18 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
-$primary-color: rgb(50, 50, 50);
-$secondary-color: rgb(40, 40, 40);
-$tertiary-color: rgb(30, 30, 30);
-$quaternary-color: rgb(20, 20, 20);
-$quinary-color: rgb(10, 10, 10);
-$white-color: white;
-$black-color: black;
-$light-black: rgb(80, 80, 80);
-$lightest-black: rgb(143, 143, 143);
-$orange-color: rgb(255, 166, 0);
-$orange-background: rgba(255, 166, 0, 0.1);
-
 *,
 *::before,
 *::after {
@@ -27,3 +14,5 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+
+/*# sourceMappingURL=deposit.css.map */
