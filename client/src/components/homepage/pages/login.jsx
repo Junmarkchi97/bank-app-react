@@ -2,8 +2,9 @@ import { React, useState, useRef } from "react";
 import "../../../styles/homepage/login.css";
 import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-export default function Login({ onLogin, error, isValid }) {
+export default function Login({ onLogin, error, isLoggedIn }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
   const removeEmailLabel = useRef(null);
@@ -22,7 +23,6 @@ export default function Login({ onLogin, error, isValid }) {
     }
 
     onLogin(details);
-    console.log(details);
   };
 
   const setEmail = (e) => {
@@ -100,7 +100,7 @@ export default function Login({ onLogin, error, isValid }) {
           <div className="error" ref={error}>
             {isError}
           </div>
-          {isValid ? (
+          {isLoggedIn ? (
             <Link to="/dashboard">
               <input className="submit" type="submit" value="Sign In" />
             </Link>

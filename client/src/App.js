@@ -13,20 +13,18 @@ function App() {
   const [items, setItems] = useState();
   const error = useRef(null);
 
-  useEffect(() => {
-    fetch("/users")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((jsonRes) => {
-        setItems(jsonRes);
-      })
-      .catch((err) => console.log(err));
-  }, [items]);
-
-  console.log(items);
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       }
+  //     })
+  //     .then((jsonRes) => {
+  //       setItems(jsonRes);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [items]);
 
   const registeredUsers = [
     {
@@ -55,9 +53,9 @@ function App() {
   const onLogin = (details) => {
     registeredUsers.forEach((user) => {
       if (user.email === details.email && user.password === details.password) {
-        setCurrentUser(registeredUsers[user.id]);
+        setIsLoggedIn(true);
 
-        setIsLoggedIn(false);
+        setCurrentUser(registeredUsers[user.id]);
       } else {
         error.current.style.opacity = "1";
       }
@@ -73,6 +71,13 @@ function App() {
     return (
       // <Navigate to="/dashboard" replace={true} />
 
+      // <Dashboard
+      //   name={currentUser.name}
+      //   email={currentUser.email}
+      //   balance={currentUser.balance}
+      //   onLogOut={onLogOut}
+      //   isLoggedIn={isLoggedIn}
+      // />
       <Routes>
         <Route
           exact
@@ -115,7 +120,9 @@ function App() {
         <Route path="/homepage" element={<Homepage />} />
         <Route
           path="/login"
-          element={<Login onLogin={onLogin} error={error} />}
+          element={
+            <Login onLogin={onLogin} error={error} isLoggedIn={isLoggedIn} />
+          }
         />
       </Routes>
     );

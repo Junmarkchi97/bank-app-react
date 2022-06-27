@@ -1,61 +1,20 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+const express = require("express");
 const app = express();
-dotenv.config();
+const cors = require("cors");
+require("dotenv").config({ path: "./config.env" });
 
-//MIDDLEWARE
-app.use(express.json());
+const port = process.env.PORT || 8000;
+
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(require("./routes/record"));
+// get driver connection
+const dbo = require("./db/conn");
 
-//DATABASE
-const registeredUsers = [
-  {
-    name: "John Doe",
-    email: "test@gmail.com",
-    balace: 1000,
-  },
-  {
-    name: "Junmark Chi",
-    email: "junmark@chi.com",
-    balace: 2000,
-  },
-  {
-    name: "John Doe",
-    email: "test@gmail.com",
-    balace: 3000,
-  },
-];
-
-mongoose.connect(
-  process.env.MONGO_URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  function (err) {
-    if (!err) {
-      console.log("Connected to Database");
-    } else {
-      console.log(err);
-    }
-  }
-);
-
-const users = new mongoose.Schema({
-  name: String,
-  email: String,
-  balance: Number,
-});
-
-const Users = mongoose.model("users", users);
-
-app.get("/api/v1/users", (req, res) => {
-  res.send("express here");
-});
-
-app.listen(3001, () => {
-  console.log("Server is running");
+app.listen(port, () => {
+  // perform a database connection when server starts
+  dbo.connectToServer((err) => {
+    if (err) console.error(err);
+  });
+  console.log(`Server is running on port: ${port}`);
 });
