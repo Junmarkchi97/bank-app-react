@@ -36,7 +36,7 @@ export default function Sidebar(props) {
           <img src="/"></img>
           <p>{name}</p>
         </div>
-        <Link to="/homepage" className="button">
+        <Link to="/" className="button">
           <button className="logout" onClick={handleLogOut}>
             Log Out
           </button>

@@ -69,7 +69,7 @@ export default function Overview(props) {
         <div className="total-balance">
           <i className="fa-solid fa-wallet"></i>
           <span className="balace-label">Total Balance</span>
-          <span className="balance">${balance}</span>
+          <span className="balance">${balance.toLocaleString("en-US")}</span>
         </div>
         <div className="total-transaction">
           <i className="fa-solid fa-right-left"></i>

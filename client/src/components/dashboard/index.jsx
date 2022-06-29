@@ -8,23 +8,32 @@ import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 
 export default function Dashboard(props) {
+  const { name, balance, email, setBalance, onLogOut } = props;
   return (
     <div className="dashboard">
       <Sidebar
-        name={props.name}
-        email={props.email}
-        balance={props.balance}
-        onLogOut={props.onLogOut}
+        name={name}
+        email={email}
+        balance={balance}
+        onLogOut={onLogOut}
       />
       <Routes>
         <Route
           exact
-          path="/dashboard/overview"
-          element={<Overview name={props.name} balance={props.balance} />}
+          path="dashboard/overview"
+          element={<Overview name={name} balance={balance} />}
         />
         <Route exact path="/dashboard/cards" element={<Cards />} />
-        <Route exact path="/dashboard/deposit" element={<Deposit />} />
-        <Route exact path="/dashboard/withdraw" element={<Withdraw />} />
+        <Route
+          exact
+          path="/dashboard/deposit"
+          element={<Deposit balance={balance} setBalance={setBalance} />}
+        />
+        <Route
+          exact
+          path="/dashboard/withdraw"
+          element={<Withdraw balance={balance} setBalance={setBalance} />}
+        />
       </Routes>
     </div>
   );

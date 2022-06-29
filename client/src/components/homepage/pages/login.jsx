@@ -7,6 +7,7 @@ import { useEffect } from "react";
 export default function Login({ onLogin, error, isLoggedIn }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
+  const [correct, isCorrect] = useState(false);
   const removeEmailLabel = useRef(null);
   const removePassLabel = useRef(null);
 
@@ -22,7 +23,7 @@ export default function Login({ onLogin, error, isLoggedIn }) {
       setIsError("Account does not exist!");
     }
 
-    onLogin(details);
+    onLogin(details, isCorrect);
   };
 
   const setEmail = (e) => {
@@ -54,7 +55,6 @@ export default function Login({ onLogin, error, isLoggedIn }) {
   // const ConditionalLink = ({ element, to, isLoggedIn }) => {
   //   return isLoggedIn ? <Link to={to}>{element}</Link> : <>{ element }</>;
   // };
-
   return (
     <div className="login-user">
       <div className="login-container">
@@ -100,7 +100,7 @@ export default function Login({ onLogin, error, isLoggedIn }) {
           <div className="error" ref={error}>
             {isError}
           </div>
-          {isLoggedIn ? (
+          {correct ? (
             <Link to="/dashboard">
               <input className="submit" type="submit" value="Sign In" />
             </Link>
@@ -113,7 +113,7 @@ export default function Login({ onLogin, error, isLoggedIn }) {
         <a href="#">
           <button className="create">Create new account</button>
         </a>
-        <Link to="/homepage" className="return">
+        <Link to="/" className="return">
           Return to Homepage
         </Link>
       </div>

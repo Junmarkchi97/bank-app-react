@@ -2,15 +2,15 @@ import Homepage from "./components/homepage/index";
 import Login from "./components/homepage/pages/login";
 // import Signup from './components/homepage/pages/signup'
 import "./styles/app.css";
-import { React, useRef, useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { React, useRef, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/index";
+import PrivateRoutes from "./privateRoutes";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(); //Current User Logged In
+  const [currentUser, setCurrentUser] = useState(""); //Current User Logged In
   const [isLoggedIn, setIsLoggedIn] = useState(false); //If User Logged In
-  const [index, setIndex] = useState(2); //Recent Index of registeredUsers
-  const [items, setItems] = useState();
+  const [balance, setBalance] = useState(0);
   const error = useRef(null);
 
   // useEffect(() => {
@@ -50,12 +50,14 @@ function App() {
     },
   ];
 
-  const onLogin = (details) => {
+  const onLogin = (details, isCorrect) => {
     registeredUsers.forEach((user) => {
       if (user.email === details.email && user.password === details.password) {
+        setCurrentUser(user);
         setIsLoggedIn(true);
+        setBalance(user.balance);
 
-        setCurrentUser(registeredUsers[user.id]);
+        return isCorrect(true);
       } else {
         error.current.style.opacity = "1";
       }
@@ -64,69 +66,73 @@ function App() {
 
   const onLogOut = (value) => {
     setIsLoggedIn(value);
-    setCurrentUser();
+    setCurrentUser("");
   };
 
-  if (isLoggedIn) {
-    return (
-      // <Navigate to="/dashboard" replace={true} />
+  // if (isLoggedIn) {
+  //   return (
+  //     // <Navigate to="/dashboard" replace={true} />
+  //     <>
+  //       <Dashboard
+  // name={currentUser.name}
+  // email={currentUser.email}
+  // balance={balance}
+  // onLogOut={onLogOut}
+  // isLoggedIn={isLoggedIn}
+  // setBalance={setBalance}
+  //       />
+  //       <Homepage />
+  //       <Routes>
+  //         <Route path="/homepage" element={<Homepage />} />
+  //       </Routes>
+  //     </>
+  //         name={currentUser.name}
+  //         email={currentUser.email}
+  //         balance={currentUser.balance}
+  //         onLogOut={onLogOut}
+  //         isLoggedIn={isLoggedIn}
+  //       />
+  //     }
+  //   ></Route>
+  // </Routes>
+  // // <Dashboard
+  //   name={currentUser.name}
+  //   email={currentUser.email}
+  //   balance={currentUser.balance}
+  //   onLogOut={onLogOut}
+  //   isLoggedIn={isLoggedIn}
+  // />
+  //   );
+  // } else {
+  // const token = localStorage.getItem("isLoggedIn");
 
-      // <Dashboard
-      //   name={currentUser.name}
-      //   email={currentUser.email}
-      //   balance={currentUser.balance}
-      //   onLogOut={onLogOut}
-      //   isLoggedIn={isLoggedIn}
-      // />
-      <Routes>
+  return (
+    <Routes>
+      <Route element={<PrivateRoutes isLoggedIn={isLoggedIn} />}>
         <Route
-          exact
           path="/dashboard"
           element={
             <Dashboard
               name={currentUser.name}
               email={currentUser.email}
-              balance={currentUser.balance}
+              balance={balance}
               onLogOut={onLogOut}
               isLoggedIn={isLoggedIn}
+              setBalance={setBalance}
             />
           }
         ></Route>
-      </Routes>
-      // <Dashboard
-      //   name={currentUser.name}
-      //   email={currentUser.email}
-      //   balance={currentUser.balance}
-      //   onLogOut={onLogOut}
-      //   isLoggedIn={isLoggedIn}
-      // />
-    );
-  } else {
-    return (
-      <Routes>
-        {/* <Route
-          exact
-          path="/dashboard"
-          element={
-            <Dashboard
-              name={currentUser.name}
-              email={currentUser.email}
-              balance={currentUser.balance}
-              onLogOut={onLogOut}
-              isLoggedIn={isLoggedIn}
-            />
-          }
-        /> */}
-        <Route path="/homepage" element={<Homepage />} />
-        <Route
-          path="/login"
-          element={
-            <Login onLogin={onLogin} error={error} isLoggedIn={isLoggedIn} />
-          }
-        />
-      </Routes>
-    );
-  }
+      </Route>
+      <Route exact path="/" element={<Homepage />} />
+      <Route
+        exact
+        path="/login"
+        element={
+          <Login onLogin={onLogin} error={error} isLoggedIn={isLoggedIn} />
+        }
+      />
+    </Routes>
+  );
 }
 
 export default App;
