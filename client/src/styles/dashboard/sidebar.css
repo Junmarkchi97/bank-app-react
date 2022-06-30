@@ -24,7 +24,7 @@ body {
   justify-content: space-around;
   flex-direction: column;
   position: relative;
-  background: rgb(50, 50, 50);
+  background: #323232;
   color: white;
 }
 .navigation .nav {
@@ -107,6 +107,11 @@ body {
   gap: 1rem;
   font-size: 1.5rem;
   font-weight: 1000;
+}
+.navigation .settings .profile img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
 }
 .navigation .settings .button {
   text-decoration: none;

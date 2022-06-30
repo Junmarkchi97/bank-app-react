@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import logoWhite from "../../assets/logo-white.png";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "../../styles/dashboard/sidebar.css";
 
 export default function Sidebar(props) {
-  const { name, email, balance, onLogOut } = props;
+  const { name, email, balance, onLogOut, image } = props;
 
   const handleLogOut = () => {
     onLogOut(false);
@@ -14,26 +14,26 @@ export default function Sidebar(props) {
     <div className="navigation">
       <div className="nav">
         <img className="sidebar-logo" src={logoWhite} alt="logo" />
-        <Link to="/dashboard/overview" className="overview">
+        <Link to="overview" className="overview">
           <i className="fa-solid fa-table-columns"></i>
           <h4>Overview</h4>
         </Link>
-        <Link to="/dashboard/cards" className="cards">
+        <Link to="cards" className="cards">
           <i className="fa-solid fa-credit-card"></i>
           <h4>Cards</h4>
         </Link>
-        <Link to="/dashboard/deposit" className="deposit">
+        <Link to="deposit" className="deposit">
           <i className="fa-solid fa-money-bill-transfer"></i>
           <h4>Deposit</h4>
         </Link>
-        <Link to="/dashboard/withdraw" className="withdraw">
+        <Link to="withdraw" className="withdraw">
           <i className="fa-solid fa-money-bill-transfer"></i>
           <h4>Withdraw</h4>
         </Link>
       </div>
       <div className="settings">
         <div className="profile">
-          <img src="/"></img>
+          <img src={image}></img>
           <p>{name}</p>
         </div>
         <Link to="/" className="button">
@@ -42,6 +42,7 @@ export default function Sidebar(props) {
           </button>
         </Link>
       </div>
+      <Outlet />
     </div>
   );
 }

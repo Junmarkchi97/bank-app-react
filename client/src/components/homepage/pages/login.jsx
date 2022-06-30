@@ -7,7 +7,6 @@ import { useEffect } from "react";
 export default function Login({ onLogin, error, isLoggedIn }) {
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
-  const [correct, isCorrect] = useState(false);
   const removeEmailLabel = useRef(null);
   const removePassLabel = useRef(null);
 
@@ -23,7 +22,7 @@ export default function Login({ onLogin, error, isLoggedIn }) {
       setIsError("Account does not exist!");
     }
 
-    onLogin(details, isCorrect);
+    onLogin(details);
   };
 
   const setEmail = (e) => {
@@ -50,11 +49,16 @@ export default function Login({ onLogin, error, isLoggedIn }) {
     error.current.style.opacity = "0";
   };
 
-  // const element = <input className="submit" type="submit" value="Sign In" />;
+  const ConditionalLink = () => {
+    const element = <input className="submit" type="submit" value="Sign In" />;
 
-  // const ConditionalLink = ({ element, to, isLoggedIn }) => {
-  //   return isLoggedIn ? <Link to={to}>{element}</Link> : <>{ element }</>;
-  // };
+    return isLoggedIn ? (
+      <Link to={"/dashboard/overview"}>{element}</Link>
+    ) : (
+      <>{element}</>
+    );
+  };
+
   return (
     <div className="login-user">
       <div className="login-container">
@@ -100,13 +104,7 @@ export default function Login({ onLogin, error, isLoggedIn }) {
           <div className="error" ref={error}>
             {isError}
           </div>
-          {correct ? (
-            <Link to="/dashboard">
-              <input className="submit" type="submit" value="Sign In" />
-            </Link>
-          ) : (
-            <input className="submit" type="submit" value="Sign In" />
-          )}
+          <ConditionalLink />
         </form>
         <a href="#">Forgot your password?</a>
         <span>Don't have a Banko account?</span>

@@ -1,1 +1,7 @@
 @use "../../app.scss" as *;
+
+.deposit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

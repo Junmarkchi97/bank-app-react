@@ -2,24 +2,21 @@ import React, { useState, useRef } from "react";
 
 export default function Withdraw(props) {
   const { balance, setBalance } = props;
-  const [withdrawAmount, setWithdrawAmount] = useState(0);
-  const inputAmount = useRef(null);
+  const [withdrawAmount, setWithdrawAmount] = useState("");
 
   const handleAmount = (e) => {
-    setWithdrawAmount(Number(e.target.value));
-
-    // if (e.target.value === 0 || NaN) {
-    //   e.target.value = "";
-    // }
+    setWithdrawAmount(
+      isNaN(Number(e.target.value)) ? "" : Number(e.target.value)
+    );
   };
 
   const handleWithdraw = () => {
     setBalance(Number(balance) - Number(withdrawAmount));
-    setWithdrawAmount(0);
+    setWithdrawAmount("");
   };
 
   return (
-    <div>
+    <div className="withdraw">
       <h1>WITHDRAW</h1>
       <input
         type="text"

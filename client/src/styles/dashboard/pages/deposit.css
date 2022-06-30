@@ -15,4 +15,10 @@ body {
   overflow: hidden;
 }
 
+.deposit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=deposit.css.map */

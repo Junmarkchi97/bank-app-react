@@ -3,23 +3,21 @@ import "../../../styles/app.css";
 
 export default function Deposit(props) {
   const { balance, setBalance } = props;
-  const [depositAmount, setDepositAmount] = useState(0);
-  const inputAmount = useRef(null);
+  const [depositAmount, setDepositAmount] = useState();
 
   const handleAmount = (e) => {
-    setDepositAmount(Number(e.target.value));
-    if (isNaN(e.target.value)) {
-      e.target.value = 0;
-    }
+    setDepositAmount(
+      isNaN(Number(e.target.value)) ? "" : Number(e.target.value)
+    );
   };
 
   const handleDeposit = () => {
     setBalance(Number(balance) + Number(depositAmount));
-    setDepositAmount(0);
+    setDepositAmount("");
   };
 
   return (
-    <div>
+    <div className="deposit">
       <h1>DEPOSIT</h1>
       <input
         type="text"
@@ -27,7 +25,6 @@ export default function Deposit(props) {
         placeholder="Amount"
         onChange={handleAmount}
         value={depositAmount}
-        ref={inputAmount}
       ></input>
       <button onClick={handleDeposit}>Submit</button>
     </div>
