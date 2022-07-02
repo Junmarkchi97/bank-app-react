@@ -9,25 +9,29 @@ import PrivateRoutes from "./privateRoutes";
 import Users from "./users";
 
 function App() {
-  const [members, setMembers] = useState(Users);
-  const [currentUser, setCurrentUser] = useState([]); //Current User Logged In
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //If User Logged In
+  localStorage.setItem("users", JSON.stringify(Users));
+
+  const [currentUser, setCurrentUser] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [balance, setBalance] = useState(0);
   const error = useRef(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch();
-      const data = await res.json();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch();
+  //     const data = await res.json();
 
-      console.log(data);
-    };
+  //     console.log(data);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
+  const users = JSON.parse(localStorage.getItem("users"));
+
+  // console.log(currentUser);
   const onLogin = (details) => {
-    Users.map((user) => {
+    users.map((user) => {
       if (user.email === details.email && user.password === details.password) {
         setCurrentUser(user);
         setIsLoggedIn(true);

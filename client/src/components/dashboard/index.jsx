@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "../../styles/dashboard/dashboard.css";
 import Sidebar from "./sidebar";
 import Overview from "./pages/overview";
-import Cards from "./pages/cards";
+import Transfer from "./pages/transfer";
 import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 
 export default function Dashboard(props) {
+  const [transaction, setTransaction] = useState({ method: "", amount: "" });
+  const transHis = [];
+
   const { name, balance, email, setBalance, onLogOut, image } = props;
+
   return (
     <div className="dashboard">
       <Sidebar
@@ -24,11 +28,25 @@ export default function Dashboard(props) {
           path="overview"
           element={<Overview name={name} balance={balance} />}
         />
-        <Route exact path="cards" element={<Cards />} />
+        <Route
+          exact
+          path="transfer"
+          element={
+            <Transfer balance={balance} setBalance={setBalance} name={name} />
+          }
+        />
         <Route
           exact
           path="deposit"
-          element={<Deposit balance={balance} setBalance={setBalance} />}
+          element={
+            <Deposit
+              balance={balance}
+              setBalance={setBalance}
+              setTransaction={setTransaction}
+              transaction={transaction}
+              transHis={transHis}
+            />
+          }
         />
         <Route
           exact

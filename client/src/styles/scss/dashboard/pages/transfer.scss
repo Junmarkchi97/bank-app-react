@@ -1,0 +1,66 @@
+@use "../../app.scss" as *;
+
+.transfer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $light-black;
+  height: 100vh;
+  width: 80vw;
+  flex-direction: column;
+
+  .transfer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(109, 109, 109);
+    box-shadow: 0px 10px 20px rgb(53, 52, 52);
+
+    h1 {
+      font-size: 1.5rem;
+      color: $orange-color;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+
+      .transfer-select {
+        padding: 0.2rem 1rem;
+        border-radius: 5px;
+        outline: none;
+      }
+
+      .transfer-button {
+        border-radius: 0.5rem;
+        border: none;
+        background: rgb(29, 88, 143);
+        color: white;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background: rgb(23, 71, 116);
+        }
+
+        &:active {
+          background: rgb(15, 45, 73);
+        }
+      }
+    }
+
+    input {
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      outline: none;
+    }
+  }
+}

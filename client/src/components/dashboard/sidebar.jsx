@@ -18,9 +18,9 @@ export default function Sidebar(props) {
           <i className="fa-solid fa-table-columns"></i>
           <h4>Overview</h4>
         </Link>
-        <Link to="cards" className="cards">
+        <Link to="transfer" className="cards">
           <i className="fa-solid fa-credit-card"></i>
-          <h4>Cards</h4>
+          <h4>Transfer</h4>
         </Link>
         <Link to="deposit" className="deposit">
           <i className="fa-solid fa-money-bill-transfer"></i>

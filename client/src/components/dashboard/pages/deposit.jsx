@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import "../../../styles/app.css";
+import "../../../styles/dashboard/pages/deposit.css";
 
 export default function Deposit(props) {
-  const { balance, setBalance } = props;
-  const [depositAmount, setDepositAmount] = useState();
+  const { balance, setBalance, setTransaction, transaction, transHis } = props;
+  const [depositAmount, setDepositAmount] = useState("");
 
   const handleAmount = (e) => {
     setDepositAmount(
@@ -12,21 +12,37 @@ export default function Deposit(props) {
   };
 
   const handleDeposit = () => {
+    if (depositAmount === "") {
+      return;
+    }
+
+    transHis.push({ method: "deposit", amount: depositAmount });
+    // setTransaction({
+    //   ...transaction,
+    //   method: "deposit",
+    //   amount: depositAmount,
+    // });
+
     setBalance(Number(balance) + Number(depositAmount));
     setDepositAmount("");
+
+    console.log(transHis);
   };
 
   return (
-    <div className="deposit">
-      <h1>DEPOSIT</h1>
-      <input
-        type="text"
-        name="deposit"
-        placeholder="Amount"
-        onChange={handleAmount}
-        value={depositAmount}
-      ></input>
-      <button onClick={handleDeposit}>Submit</button>
+    <div className="deposit-container">
+      <div className="deposit-wrapper">
+        <h1>DEPOSIT</h1>
+        <input
+          type="number"
+          min="0"
+          name="deposit"
+          placeholder="Amount"
+          onChange={handleAmount}
+          value={depositAmount}
+        ></input>
+        <button onClick={handleDeposit}>Submit</button>
+      </div>
     </div>
   );
 }

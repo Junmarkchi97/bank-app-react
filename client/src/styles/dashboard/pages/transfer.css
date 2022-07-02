@@ -15,7 +15,7 @@ body {
   overflow: hidden;
 }
 
-.withdraw-container {
+.transfer-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ body {
   width: 80vw;
   flex-direction: column;
 }
-.withdraw-container .withdraw-wrapper {
+.transfer-container .transfer-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,21 +32,25 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   background-color: rgb(109, 109, 109);
-  gap: 1rem;
   box-shadow: 0px 10px 20px rgb(53, 52, 52);
 }
-.withdraw-container .withdraw-wrapper h1 {
-  color: rgb(255, 166, 0);
+.transfer-container .transfer-wrapper h1 {
   font-size: 1.5rem;
+  color: rgb(255, 166, 0);
 }
-.withdraw-container .withdraw-wrapper input {
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: none;
+.transfer-container .transfer-wrapper form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.transfer-container .transfer-wrapper form .transfer-select {
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
   outline: none;
 }
-.withdraw-container .withdraw-wrapper button {
+.transfer-container .transfer-wrapper form .transfer-button {
   border-radius: 0.5rem;
   border: none;
   background: rgb(29, 88, 143);
@@ -54,11 +58,18 @@ body {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
-.withdraw-container .withdraw-wrapper button:hover {
+.transfer-container .transfer-wrapper form .transfer-button:hover {
   background: rgb(23, 71, 116);
 }
-.withdraw-container .withdraw-wrapper button:active {
+.transfer-container .transfer-wrapper form .transfer-button:active {
   background: rgb(15, 45, 73);
 }
+.transfer-container .transfer-wrapper input {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
 
-/*# sourceMappingURL=withdraw.css.map */
+/*# sourceMappingURL=transfer.css.map */

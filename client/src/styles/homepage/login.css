@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   height: auto;
-  width: 100vw;
+  width: auto;
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@ body {
   height: 4rem;
 }
 .login-user .login-container p {
-  color: rgb(50, 50, 50);
+  color: #323232;
   font-size: 1.2rem;
   font-weight: 1000;
 }

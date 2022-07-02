@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   height: auto;
-  width: 100vw;
+  width: auto;
   overflow: hidden;
 }
 
@@ -59,7 +59,7 @@ body {
   cursor: pointer;
   border: none;
   color: white;
-  background: linear-gradient(to right, rgb(50, 50, 50), rgb(134, 134, 134), rgb(50, 50, 50));
+  background: linear-gradient(to right, #323232, rgb(134, 134, 134), #323232);
   background-size: 700%;
   transition: 0.4s;
   background-position: 0%;

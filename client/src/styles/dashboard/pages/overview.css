@@ -11,27 +11,34 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   height: auto;
-  width: 100vw;
+  width: auto;
   overflow: hidden;
 }
 
 .overview-page {
   padding: 2rem;
-  width: auto;
+  width: 80vw;
+  background: rgb(80, 80, 80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .overview-page h1 {
   font-size: 1.5rem;
   margin: 0;
   font-weight: 1000;
   font-family: "Poppins", sans-serif;
-  color: rgb(80, 80, 80);
+  color: white;
 }
 .overview-page .welcome {
   font-size: 2rem;
   margin-top: 1rem;
+  color: white;
 }
 .overview-page .welcome .name {
   font-weight: 1000;
+  color: orange;
 }
 .overview-page .balance-container {
   display: flex;
@@ -93,8 +100,8 @@ body {
 }
 .overview-page .chart {
   position: relative;
-  width: 50vw;
-  height: 40vh;
+  width: 45vw;
+  height: 30vh;
   padding: 1rem 1rem;
   border-radius: 1rem;
   background: rgba(255, 166, 0, 0.1);

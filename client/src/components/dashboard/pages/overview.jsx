@@ -6,13 +6,6 @@ import "../../../styles/dashboard/pages/overview.css";
 
 export default function Overview(props) {
   const { name, balance } = props;
-  const transactionHistory = [
-    {
-      time: 1,
-      currentBalance: 2000,
-      from: "Elon",
-    },
-  ];
 
   const [chartData, setChartData] = useState({
     labels: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -38,6 +31,7 @@ export default function Overview(props) {
       y: {
         beginAtZero: true,
         ticks: {
+          color: "white",
           callback: function (value) {
             return "$" + value + "m";
           },
@@ -47,6 +41,9 @@ export default function Overview(props) {
         },
       },
       x: {
+        ticks: {
+          color: "white",
+        },
         grid: {
           display: false,
         },

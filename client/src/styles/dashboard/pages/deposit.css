@@ -11,14 +11,54 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   height: auto;
-  width: 100vw;
+  width: auto;
   overflow: hidden;
 }
 
-.deposit {
+.deposit-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(80, 80, 80);
+  height: 100vh;
+  width: 80vw;
+  flex-direction: column;
+}
+.deposit-container .deposit-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(109, 109, 109);
+  gap: 1rem;
+  box-shadow: 0px 10px 20px rgb(53, 52, 52);
+}
+.deposit-container .deposit-wrapper h1 {
+  color: rgb(255, 166, 0);
+  font-size: 1.5rem;
+}
+.deposit-container .deposit-wrapper input {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+.deposit-container .deposit-wrapper button {
+  border-radius: 0.5rem;
+  border: none;
+  background: rgb(29, 88, 143);
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.deposit-container .deposit-wrapper button:hover {
+  background: rgb(23, 71, 116);
+}
+.deposit-container .deposit-wrapper button:active {
+  background: rgb(15, 45, 73);
 }
 
 /*# sourceMappingURL=deposit.css.map */

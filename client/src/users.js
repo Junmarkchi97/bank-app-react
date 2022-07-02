@@ -27,4 +27,8 @@ const Users = [
   },
 ];
 
+function localStore() {
+  localStorage.setItem("users", JSON.stringify(Users));
+}
+
 export default Users;

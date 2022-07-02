@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   height: auto;
-  width: 100vw;
+  width: auto;
   overflow: hidden;
 }
 
@@ -41,7 +41,7 @@ body {
 .header .header1 .about,
 .header .header1 .help {
   padding: 1rem 1rem;
-  color: rgb(50, 50, 50);
+  color: #323232;
   text-decoration: none;
   font-weight: 400;
   font-size: 1.1rem;
@@ -61,7 +61,7 @@ body {
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 250ms ease-in-out;
-  background-color: rgb(50, 50, 50);
+  background-color: #323232;
 }
 .header .header1 .services:hover::after,
 .header .header1 .about:hover::after,
@@ -71,7 +71,7 @@ body {
 }
 .header .login {
   padding: 1rem 1rem;
-  color: rgb(50, 50, 50);
+  color: #323232;
   text-decoration: none;
   font-weight: 1000;
   font-size: 1.1rem;
@@ -88,7 +88,7 @@ body {
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 250ms ease-in-out;
-  background-color: rgb(50, 50, 50);
+  background-color: #323232;
 }
 .header .login:hover::after {
   transform: scaleX(1);
@@ -97,7 +97,7 @@ body {
 .header .signup {
   margin: 2rem;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, rgb(50, 50, 50), rgb(134, 134, 134), rgb(50, 50, 50));
+  background: linear-gradient(to right, #323232, rgb(134, 134, 134), #323232);
   background-size: 700%;
   background-position: 0%;
   color: white;
