@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "../../../styles/dashboard/pages/deposit.css";
 
 export default function Deposit(props) {
-  const { balance, setBalance, setTransaction, transaction, transHis } = props;
+  const { balance, setBalance } = props;
   const [depositAmount, setDepositAmount] = useState("");
 
   const handleAmount = (e) => {
@@ -12,21 +12,10 @@ export default function Deposit(props) {
   };
 
   const handleDeposit = () => {
-    if (depositAmount === "") {
-      return;
-    }
-
-    transHis.push({ method: "deposit", amount: depositAmount });
-    // setTransaction({
-    //   ...transaction,
-    //   method: "deposit",
-    //   amount: depositAmount,
-    // });
+    if (depositAmount === "") return;
 
     setBalance(Number(balance) + Number(depositAmount));
     setDepositAmount("");
-
-    console.log(transHis);
   };
 
   return (

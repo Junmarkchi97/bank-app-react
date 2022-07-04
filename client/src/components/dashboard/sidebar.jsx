@@ -4,10 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 import "../../styles/dashboard/sidebar.css";
 
 export default function Sidebar(props) {
-  const { name, email, balance, onLogOut, image } = props;
+  const { name, image, onLogOut } = props;
 
   const handleLogOut = () => {
-    onLogOut(false);
+    onLogOut();
   };
 
   return (

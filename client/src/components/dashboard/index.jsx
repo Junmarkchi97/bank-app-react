@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "../../styles/dashboard/dashboard.css";
 import Sidebar from "./sidebar";
@@ -8,45 +8,42 @@ import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 
 export default function Dashboard(props) {
-  const [transaction, setTransaction] = useState({ method: "", amount: "" });
-  const transHis = [];
+  const { email, onLogOut } = props;
+  const Users = JSON.parse(localStorage.getItem("users"));
+  const currentUser = Users.find((user) => user.email === email);
 
-  const { name, balance, email, setBalance, onLogOut, image } = props;
+  const [balance, setBalance] = useState(currentUser.balance);
+
+  useEffect(() => {
+    currentUser.balance = balance;
+
+    localStorage.setItem("users", JSON.stringify(Users));
+  }, [balance]);
+
+  const nameCurrent = currentUser.name;
+  const emailCurrent = currentUser.email;
+  const imageCurrent = currentUser.imageUrl;
+
+  const [transaction, setTransaction] = useState({ method: "", amount: "" });
 
   return (
     <div className="dashboard">
-      <Sidebar
-        name={name}
-        email={email}
-        balance={balance}
-        onLogOut={onLogOut}
-        image={image}
-      />
+      <Sidebar onLogOut={onLogOut} name={nameCurrent} image={imageCurrent} />
       <Routes>
         <Route
           index
           path="overview"
-          element={<Overview name={name} balance={balance} />}
+          element={<Overview name={nameCurrent} balance={balance} />}
         />
         <Route
           exact
           path="transfer"
-          element={
-            <Transfer balance={balance} setBalance={setBalance} name={name} />
-          }
+          element={<Transfer name={nameCurrent} />}
         />
         <Route
           exact
           path="deposit"
-          element={
-            <Deposit
-              balance={balance}
-              setBalance={setBalance}
-              setTransaction={setTransaction}
-              transaction={transaction}
-              transHis={transHis}
-            />
-          }
+          element={<Deposit balance={balance} setBalance={setBalance} />}
         />
         <Route
           exact

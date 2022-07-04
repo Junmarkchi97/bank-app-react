@@ -5,10 +5,16 @@ import "../../../styles/dashboard/pages/transfer.css";
 import Users from "../../../users";
 
 export default function Transfer(props) {
-  const { balance, setBalance, name } = props;
+  const { name } = props;
   const [transferAmount, setTransferAmount] = useState("");
   const [transferred, setTransferred] = useState("");
   const [friend, setFriend] = useState();
+
+  const handleOption = (e) => {
+    // e.preventDefault();
+
+    setFriend(e.target.value);
+  };
 
   const handleAmount = (e) => {
     setTransferAmount(
@@ -21,18 +27,12 @@ export default function Transfer(props) {
 
     if (transferAmount === "") return;
 
-    setBalance(Number(balance) - Number(transferAmount));
+    // setBalance(Number(balance) - Number(transferAmount));
     setTransferred(transferAmount);
 
     setTransferAmount("");
 
     console.log(e.target.value);
-  };
-
-  const handleOption = (e) => {
-    // e.preventDefault();
-
-    setFriend(e.target.value);
   };
 
   const DisplayFriends = () => {

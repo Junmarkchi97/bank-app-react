@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  height: auto;
+  width: auto;
+  overflow: hidden;
+}
+
+.signup-user {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-user .signup-container {
+  height: 35rem;
+  width: 35rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+.signup-user .signup-container img {
+  height: 4rem;
+}
+.signup-user .signup-container p {
+  color: #323232;
+  font-size: 1.2rem;
+  font-weight: 1000;
+}
+.signup-user .signup-container .input-form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.signup-user .signup-container .input-form .name,
+.signup-user .signup-container .input-form .email,
+.signup-user .signup-container .input-form .pass {
+  position: relative;
+  line-height: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.signup-user .signup-container .input-form .name .label-name,
+.signup-user .signup-container .input-form .name .label-email,
+.signup-user .signup-container .input-form .name .label-pass,
+.signup-user .signup-container .input-form .email .label-name,
+.signup-user .signup-container .input-form .email .label-email,
+.signup-user .signup-container .input-form .email .label-pass,
+.signup-user .signup-container .input-form .pass .label-name,
+.signup-user .signup-container .input-form .pass .label-email,
+.signup-user .signup-container .input-form .pass .label-pass {
+  text-align: center;
+  position: absolute;
+  padding: 1.2rem;
+  color: rgb(172, 172, 172);
+  cursor: text;
+  user-select: none;
+}
+.signup-user .signup-container .input-form .name .input-name,
+.signup-user .signup-container .input-form .name .input-email,
+.signup-user .signup-container .input-form .name .input-pass,
+.signup-user .signup-container .input-form .email .input-name,
+.signup-user .signup-container .input-form .email .input-email,
+.signup-user .signup-container .input-form .email .input-pass,
+.signup-user .signup-container .input-form .pass .input-name,
+.signup-user .signup-container .input-form .pass .input-email,
+.signup-user .signup-container .input-form .pass .input-pass {
+  font-size: 1.3rem;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 1px solid rgb(202, 221, 231);
+  background: rgb(242, 247, 250);
+  font-family: "Poppins", sans-serif;
+}
+.signup-user .signup-container .input-form .error {
+  color: red;
+  transition: 0.5s;
+  opacity: 0;
+}
+.signup-user .signup-container .input-form .success {
+  color: green;
+  display: none;
+}
+.signup-user .signup-container .submit {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 1000;
+  background-image: linear-gradient(to right, rgb(77, 125, 214), rgb(104, 138, 202) 50%, rgb(30, 58, 136));
+  background-position: 0%;
+  background-size: 800%;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem 5.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0 1px 2px gray;
+  margin: 0.5rem 0 0.5rem;
+}
+.signup-user .signup-container .submit:hover {
+  background-position: 70% 0;
+}
+.signup-user .signup-container .submit:active {
+  background-position: 100% 0;
+}
+.signup-user .signup-container .already {
+  color: rgb(143, 143, 143);
+  margin: 0.5rem 0;
+  text-decoration: none;
+}
+.signup-user .signup-container .return {
+  margin-top: 3rem;
+  color: rgb(66, 101, 129);
+}
+.signup-user .signup-container .return::before {
+  content: "<";
+  position: absolute;
+  transform: translate(-1rem);
+}
+
+/*# sourceMappingURL=signup.css.map */

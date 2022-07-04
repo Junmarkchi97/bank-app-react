@@ -4,7 +4,8 @@ import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function Login({ onLogin, error, isLoggedIn }) {
+export default function Login(props) {
+  const { error, isLoggedIn, onLogin } = props;
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
   const removeEmailLabel = useRef(null);
@@ -45,7 +46,6 @@ export default function Login({ onLogin, error, isLoggedIn }) {
     } else {
       removePassLabel.current.style.display = "none";
     }
-
     error.current.style.opacity = "0";
   };
 
@@ -108,9 +108,9 @@ export default function Login({ onLogin, error, isLoggedIn }) {
         </form>
         <a href="#">Forgot your password?</a>
         <span>Don't have a Banko account?</span>
-        <a href="#">
+        <Link to="/signup">
           <button className="create">Create new account</button>
-        </a>
+        </Link>
         <Link to="/" className="return">
           Return to Homepage
         </Link>

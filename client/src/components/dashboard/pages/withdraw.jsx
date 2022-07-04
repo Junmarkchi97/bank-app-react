@@ -12,9 +12,7 @@ export default function Withdraw(props) {
   };
 
   const handleWithdraw = () => {
-    if (withdrawAmount === "") {
-      return;
-    }
+    if (withdrawAmount === "") return;
 
     setBalance(Number(balance) - Number(withdrawAmount));
     setWithdrawAmount("");
@@ -27,6 +25,7 @@ export default function Withdraw(props) {
         <input
           type="number"
           min="0"
+          name="withdraw"
           placeholder="Amount"
           onChange={handleAmount}
           value={withdrawAmount}
