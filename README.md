@@ -1,3 +1,13 @@
+# INITIAL USER ACCOUNTS
+
+| Email Address   | Password |
+| --------------- | -------- |
+| junmark@chi.com | 1234     |
+| elon@musk.com   | 1234     |
+| james@bond.com  | 1234     |
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
