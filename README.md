@@ -1,4 +1,4 @@
-# INITIAL USER ACCOUNTS
+# Initial User Accounts
 
 | Email Address   | Password |
 | --------------- | -------- |
