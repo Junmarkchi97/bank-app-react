@@ -18,6 +18,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const errorLogin = useRef(null);
+  const submitLogin = useRef(null);
 
   const onLogin = (details) => {
     users.map((user) => {
@@ -28,7 +29,7 @@ function App() {
 
         localStorage.setItem("isLoggedIn", JSON.stringify(true));
       } else {
-        errorLogin.current.style.opacity = "1";
+        errorLogin.current.style.display = "flex";
       }
     });
   };
@@ -57,6 +58,7 @@ function App() {
               onLogin={onLogin}
               error={errorLogin}
               isLoggedIn={isLoggedIn}
+              submitLogin={submitLogin}
             />
           }
         />

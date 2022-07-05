@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function Login(props) {
-  const { error, isLoggedIn, onLogin } = props;
+  const { error, isLoggedIn, onLogin, submitLogin } = props;
   const [details, setDetails] = useState({ email: "", password: "" });
   const [isError, setIsError] = useState();
   const removeEmailLabel = useRef(null);
@@ -35,7 +35,8 @@ export default function Login(props) {
       removeEmailLabel.current.style.display = "none";
     }
 
-    error.current.style.opacity = "0";
+    error.current.style.display = "none";
+    submitLogin.current.style.margin = "2rem 0 0.5rem";
   };
 
   const setPassword = (e) => {
@@ -46,11 +47,19 @@ export default function Login(props) {
     } else {
       removePassLabel.current.style.display = "none";
     }
-    error.current.style.opacity = "0";
+    error.current.style.display = "none";
+    submitLogin.current.style.margin = "2rem 0 0.5rem";
   };
 
   const ConditionalLink = () => {
-    const element = <input className="submit" type="submit" value="Sign In" />;
+    const element = (
+      <input
+        className="submit"
+        type="submit"
+        value="Sign In"
+        ref={submitLogin}
+      />
+    );
 
     return isLoggedIn ? (
       <Link to={"/dashboard/overview"}>{element}</Link>

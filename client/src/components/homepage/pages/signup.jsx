@@ -7,56 +7,84 @@ import { useEffect } from "react";
 export default function Signup(props) {
   const { users } = props;
   const error = useRef(null);
-  const success = useRef(null);
+  //   const users = JSON.parse(localStorage.getItem("users"));
 
   const [newDetails, setNewDetails] = useState({
     name: "",
     email: "",
     password: "",
     balance: 0,
-    imageUrl: "",
+    imageUrl:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
   });
 
-  const [isError, setIsError] = useState();
+  const [thisError, setThisError] = useState();
   const removeNameSign = useRef(null);
   const removeEmailSign = useRef(null);
   const removePassSign = useRef(null);
+  const removeNameInput = useRef(null);
+  const removeEmailInput = useRef(null);
+  const removePassInput = useRef(null);
+  const submit = useRef(null);
+  const [isValid, setIsValid] = useState(false);
 
-  const onCreate = (newDetails) => {
-    users.map((user) => {
-      if (newDetails.email !== user.email) {
-        users.push(newDetails);
-        localStorage.setItem("users", JSON.stringify(users));
-        success.current.display = "flex";
-      } else {
-        error.current.style.opacity = "1";
-      }
-    });
-  };
+  useEffect(() => {
+    if (isValid) {
+      error.current.style.color = "green";
+      setThisError("Account created successfully!");
+      users.push(newDetails);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      removeNameInput.current.value = "";
+      removeNameSign.current.style.display = "flex";
+      removeEmailInput.current.value = "";
+      removeEmailSign.current.style.display = "flex";
+      removePassInput.current.value = "";
+      removePassSign.current.style.display = "flex";
+    }
+  }, [isValid]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (
-      newDetails.password === "" &&
+      newDetails.name === "" &&
       newDetails.email === "" &&
       newDetails.password === ""
     ) {
-      setIsError("Enter your new account details.");
+      setThisError("Enter your new account details.");
     } else if (newDetails.email === "" && newDetails.password === "") {
-      setIsError("Email and Password cannot be blank.");
-    } else if (newDetails.name === "") {
-      setIsError("Full name cannot be blank.");
-    } else if (newDetails.email === "") {
-      setIsError("Email Address cannot be blank.");
-    } else if (newDetails.password === "") {
-      setIsError("Password cannot be blank.");
-    } else if (users.map((user) => user.email !== newDetails.email)) {
-      setIsError("Email already exists.");
+      setThisError("Email and Password cannot be blank.");
+    } else if (newDetails.name === "" && newDetails.password === "") {
+      setThisError("Full name and Password is blank.");
+    } else if (newDetails.name === "" && newDetails.email === "") {
+      setThisError("Full name and Email is blank.");
+    } else if (newDetails.name === "" || newDetails.name.trim() === "") {
+      setThisError("Full name cannot be blank.");
+    } else if (newDetails.email === "" || newDetails.email.trim() === "") {
+      setThisError("Email Address cannot be blank.");
+    } else if (
+      newDetails.password === "" ||
+      newDetails.password.trim() === ""
+    ) {
+      setThisError("Password cannot be blank.");
     } else {
+      setIsValid(true);
     }
 
     onCreate(newDetails);
-    error.current.style.opacity = "1";
+  };
+
+  const onCreate = (newDetails) => {
+    users.map((user) => {
+      if (user.email === newDetails.email) {
+        setIsValid(false);
+        error.current.style.color = "red";
+        console.log("Email Exists");
+        setThisError("Email already exists!");
+      }
+    });
+    error.current.style.display = "flex";
+    submit.current.style.margin = "0rem 0 0.5rem";
   };
 
   const setData = (e, dom) => {
@@ -74,7 +102,8 @@ export default function Signup(props) {
       dom.current.style.display = "none";
     }
 
-    error.current.style.opacity = "0";
+    submit.current.style.margin = "2.2rem 0 0.5rem";
+    error.current.style.display = "none";
   };
 
   return (
@@ -94,6 +123,7 @@ export default function Signup(props) {
               name="name"
               id="name"
               onChange={(e) => setData(e, removeNameSign)}
+              ref={removeNameInput}
             />
           </div>
           <div className="email">
@@ -111,6 +141,7 @@ export default function Signup(props) {
               name="email"
               id="email"
               onChange={(e) => setData(e, removeEmailSign)}
+              ref={removeEmailInput}
             />
           </div>
           <div className="pass">
@@ -127,24 +158,24 @@ export default function Signup(props) {
               type="password"
               name="password"
               id="password"
+              minLength="4"
               onChange={(e) => setData(e, removePassSign)}
+              ref={removePassInput}
             />
           </div>
           <div className="error" ref={error}>
-            {isError}
+            {thisError}
           </div>
-          <div className="success" ref={success}>
-            Account Successfully Created!
-          </div>
-          <input className="submit" type="submit" value="Create Account" />
+          <input
+            className="submit"
+            type="submit"
+            value="Create Account"
+            ref={submit}
+          />
         </form>
-        {/* <a href="#">
-          <button className="create">Create new account</button>
-        </a> */}
         <Link className="already" to="/login">
           Already have an account?
         </Link>
-
         <Link to="/" className="return">
           Return to Homepage
         </Link>

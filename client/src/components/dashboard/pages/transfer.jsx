@@ -50,6 +50,7 @@ export default function Transfer(props) {
   return (
     <div className="transfer-container">
       <div className="transfer-wrapper">
+        <h3>*In Development*</h3>
         <h1>TRANSFER</h1>
         <form onSubmit={handleTransfer}>
           <select

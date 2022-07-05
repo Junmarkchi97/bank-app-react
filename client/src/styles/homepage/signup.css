@@ -89,12 +89,16 @@ body {
 }
 .signup-user .signup-container .input-form .error {
   color: red;
-  transition: 0.5s;
-  opacity: 0;
-}
-.signup-user .signup-container .input-form .success {
-  color: green;
+  animation: error 0.05s ease-in-out 0s 5 alternate forwards;
   display: none;
+}
+@keyframes error {
+  from {
+    transform: translateX(5px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 .signup-user .signup-container .submit {
   font-family: "Montserrat", sans-serif;
@@ -108,9 +112,9 @@ body {
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  transition: 0.4s;
+  transition: background-position 0.4s;
   box-shadow: 0 1px 2px gray;
-  margin: 0.5rem 0 0.5rem;
+  margin: 2.2rem 0 0.5rem;
 }
 .signup-user .signup-container .submit:hover {
   background-position: 70% 0;
@@ -126,6 +130,7 @@ body {
 .signup-user .signup-container .return {
   margin-top: 3rem;
   color: rgb(66, 101, 129);
+  text-decoration: none;
 }
 .signup-user .signup-container .return::before {
   content: "<";
